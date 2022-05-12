@@ -9,9 +9,13 @@ const PORT = process.env.PORT ||5000
 
 app.use(cors())
 app.use(morgan('dev'))
+app.use(express.json())
 
-app.get('/', (req,  res)=>{
-    res.send('hello')
+
+app.post('/register', (req,  res)=>{
+    res.send({
+        message:`hello ${req.body.email} your user was registred`
+    })
 })
 
 app.listen(PORT, ()=>{
